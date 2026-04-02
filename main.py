@@ -4,6 +4,7 @@ import mimetypes
 import socket
 import time
 import urllib.parse
+from datetime import datetime
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from threading import Event, Thread
@@ -79,8 +80,13 @@ def save_form_data(data: bytes) -> None:
         parse_dict: dict[str, str] = {
             k: v for k, v in [value.split("=") for value in parse_data.split("&")]
         }
+        with open(filename, encoding="utf-8") as file:
+            open_file = json.load(file)
+
+        open_file[str(datetime.now())] = parse_dict
+
         with open(filename, "w", encoding="utf-8") as file:
-            json.dump(parse_dict, file, ensure_ascii=False, indent=4)
+            json.dump(open_file, file, ensure_ascii=False, indent=4)
     except OSError as err:
         logging.error(err)
 
