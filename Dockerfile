@@ -19,7 +19,7 @@ RUN poetry config virtualenvs.create false && poetry install --only main --no-ro
 COPY . .
 
 # Позначимо порт, де працює застосунок всередині контейнера
-EXPOSE 8080
+EXPOSE 3000
 
 # Запустимо наш застосунок всередині контейнера
 CMD ["python", "main.py"]
