@@ -1,0 +1,15 @@
+services:
+  goit-hw-12:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: goit-pyweb-hw-12
+    container_name: goit-hw-12
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./storage:/app/storage
+      - .:/app
