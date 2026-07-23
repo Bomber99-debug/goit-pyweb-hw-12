@@ -11,10 +11,10 @@ from threading import Thread
 
 BASE_DIR = Path(__file__).resolve().parent
 BUFFER_SIZE = 1024
-HTTP_PORT = 3001
+HTTP_PORT = 3000
 HTTP_HOST = "0.0.0.0"
 SOCKET_HOST = "127.0.0.1"
-SOCKET_PORT = 5001
+SOCKET_PORT = 5000
 
 
 class HttpInit(BaseHTTPRequestHandler):
